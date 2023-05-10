@@ -1,0 +1,261 @@
+.a-alura img{
+    width: 170px;  
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    
+}
+
+body {
+    background-color: #F3F5FC;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cuadro-texto{
+
+    position: fixed;
+    width: 577px;
+    line-height: 48px;
+    top: 168px;
+    left: 240px;
+    border-color: transparent;
+    background-color: transparent;
+    font-size: 32px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
+    color: #0A3871;
+    font-weight: bold;
+
+}
+
+::placeholder{
+    color: #0A3871;
+    font-size: 32px;
+    margin: 10px;
+
+}
+.circle-warning {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: fixed;
+    top: 860px;
+    left: 240px;
+    background-color: #495057;
+    color: white;
+    text-align: center;
+    
+  }
+
+.warning{
+    position: fixed;
+    top: 851px;
+    left: 264px;
+    color: #495057;
+    font-size: 12px;
+}
+
+.right-encriptar{
+    
+    width: 328px;
+    height: 67px;
+    background-color: #0A3871;
+    border-radius: 24px;
+    position: fixed;
+    top: 885px;
+    left: 240px;
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
+   transition: 0.5s all;
+    
+}
+.right-encriptar:hover{
+    transform: scale(1.05);
+}
+
+.right-encriptar:active{
+    transform: scale(0.80);
+    
+}
+
+
+.left-desencriptar{
+    width: 328px;
+    height: 67px;
+    background-color: #D8DFE8;
+    border-radius: 24px;
+    border:2px solid #0A3871;
+    height: 67px;
+    position: fixed;
+    top: 885px;
+    left: 592px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A3871;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
+    transition: 0.5s all;
+}
+
+.left-desencriptar:hover{
+    transform: scale(1.05);
+}
+
+.left-desencriptar:active{
+    transform: scale(0.80);
+}
+
+
+.answer-box{
+    width: 415px;
+    height: 936px;
+    position: fixed;
+    top: 48px;
+    left: 1000px;
+    border-radius: 32px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+
+}
+
+#monito{
+    position: fixed;
+    top: 243px;
+    left: 1032px;
+
+}
+
+#ningun-mensaje{
+    width: 336px;
+    font-size: 24px;
+    text-align: center;
+    color: #343A40;
+    font-weight: 700;
+    line-height: 28.8px;
+
+}
+
+#ingresa-mensaje{
+    width: 336px;
+    font-weight: 400;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #343A40;
+    font-weight: 400;
+}
+
+#titulo-mensaje{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 40px;
+
+}
+
+#parrafo{
+    text-align: left;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-left: 12px;
+    margin-right: 100px;
+    text-align: left;
+
+   
+}
+
+.copiar{
+    width: 328px;
+    height: 67px;
+    background-color: transparent;
+    border-radius: 24px;
+    border:2px solid #0A3871;
+    height: 67px;
+    position: fixed;
+    top: 885px;
+    left: 1050px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A3871;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
+    transition: 0.5s all;
+}
+
+.copiar:hover{
+
+    transform: scale(1.05);
+}
+
+.copiar:active{
+    transform: scale(0.80);
+    
+}
+
+/*para telefono necesario poner <meta name="viewport" content="width=device-width"> */
+@media screen and (max-width: 480px){
+
+
+    .a-alura img{
+        top: 24px;
+        left: 2px;
+        
+        
+    }
+    .cuadro-texto{
+        position: fixed;
+        top: 125px;
+        left: 30px;
+        width: 343px;
+       
+        
+    }
+    .right-encriptar{
+        top: 485px;
+        left: 30px;
+
+        
+
+    }
+
+    .left-desencriptar{
+        top: 600px;
+        left: 30px;
+
+    }
+
+    
+    
+  
+    /*#ningun-mensaje{
+        position: fixed;
+        top: 670px;
+        left: 27px;
+
+    }
+
+    #ingresa-mensaje{
+        position: fixed;
+        top: 750px;
+        left: 27px;
+    }*/
+    
+    .answer-box{
+        position: fixed;
+        top: 750px;
+        left: 27px;}
+    
+}
+    

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF=8">
+        <meta name="viewport" content="width=device-width"> 
+        <title>ENCRIPTADOR</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel = "stylesheet" href="encriptador.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;900&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header>
+            <div class="a-alura">
+                <img src="encriptador/Logo.png">
+
+            </div>
+
+            
+
+        </header>
+
+        <main>
+
+
+            <textarea type="text" id="ingresaencriptacion"class="cuadro-texto" required placeholder="Ingrese texto aqui" autofocus ></textarea>
+            
+            <div class="circle-warning"> ! </div>
+
+                <p class="warning">Solo letras minúsculas y sin acentos</p>
+
+            <div > 
+                
+                <button  type="button" class="right-encriptar" onclick="encriptar(); showButton()"> Encriptar </button> 
+            
+            </div>
+
+            <div>
+                
+                <button  type="button" class="left-desencriptar" onclick="desencriptar(); showButton()"> Desencriptar </button> 
+            
+            </div>
+
+            <div class="answer-box">
+
+                <div id="monito">
+                    <img src="encriptador/Muñeco.png">
+
+                    <p id="ningun-mensaje" class="ningun-mensaje"> Ningún mensaje fue encontrado</p>
+                    <p id="ingresa-mensaje"> Ingresa el texto que desees encriptar o desencriptar.</p>
+
+                    
+
+                </div>
+               
+            
+               <p id="titulo-mensaje"> 
+                <p id="parrafo" class="parrafo-encriptar" ></p>
+                <button  id="texto-a-copiar" type="button" class="copiar" onclick="copiar()" style="display:none"> Copiar </button> 
+
+            </div>
+            
+          
+
+
+        </main>
+    
+        <script>
+           function showButton(){
+            let textoACopiar = document.getElementById("texto-a-copiar");
+            let inputText = document.getElementById("ingresaencriptacion").value;
+                if (inputText !== "") {
+                    textoACopiar.style.display = "block";
+                    textoACopiar.textContent = "Copiar";
+                } else {
+                    textoACopiar.style.display = "none";
+                }
+                }
+            
+            function encriptar( ){
+                
+                let texto = document.getElementById("ingresaencriptacion").value;
+                let titulomensaje=document.getElementById("titulo-mensaje");
+                let parrafo = document.getElementById("parrafo");
+                let monito = document.getElementById("monito")
+                
+
+                let textocifrado = texto
+                    .replace(/e/gi,"enter")
+                    .replace(/i/gi,"imes")
+                    .replace(/a/gi,"ai")
+                    .replace(/o/gi,"ober")
+                    .replace(/u/gi,"ufat");
+
+                if(texto.length !=0){
+                    texto = textocifrado;
+                    titulomensaje.textContent="Encriptacion exitosa";
+                    parrafo.textContent = textocifrado;
+                    monito.style.display = "none"
+                    document.getElementById("texto-a-copiar").textContent = textocifrado;
+                    
+                    }
+
+                else{
+                   alert("No se ingreso ningun texto")
+                    
+                }
+                
+                
+                                    
+            }
+
+            function desencriptar(){
+                let texto = document.getElementById("ingresaencriptacion").value;
+                let titulomensaje=document.getElementById("titulo-mensaje");
+                let parrafo = document.getElementById("parrafo");
+                let monito = document.getElementById("monito")
+
+                let textodecifrado = texto
+                    .replace(/enter/gi,"e")
+                    .replace(/imes/gi,"i")
+                    .replace(/ai/gi,"a")
+                    .replace(/ober/gi,"o")
+                    .replace(/ufat/gi,"u");
+
+                    if(texto.length !=0){
+                    texto = textodecifrado;
+                    titulomensaje.textContent="Desencriptación exitosa";
+                    parrafo.textContent = textodecifrado;
+                    monito.style.display = "none"
+                                    }
+
+                    else{
+                   alert("No se ingreso ningun texto")
+                    
+                    }
+
+            }
+
+            function copiar(autofocus) {
+                let textoACopiar = document.getElementById("parrafo").textContent;
+                let elemetoACopiar = document.createElement("input");
+                elemetoACopiar.type = "text";
+                elemetoACopiar.value = textoACopiar;
+                document.body.appendChild(elemetoACopiar);
+                elemetoACopiar.select();
+                document.execCommand("copy");
+                document.body.removeChild(elemetoACopiar);
+                document.getElementById("ingresaencriptacion").focus();
+                document.getElementById("ingresaencriptacion").value = "";
+
+                
+            }
+
+        </script>
+
+
+    </body>
+</html>
