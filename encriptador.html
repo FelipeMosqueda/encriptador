@@ -6,12 +6,11 @@
         <meta charset="UTF=8">
         <meta name="viewport" content="width=device-width"> 
         <title>ENCRIPTADOR</title>
-        <link rel="stylesheet" href="reset.css">
         <link rel = "stylesheet" href="encriptador.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;900&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     </head>
 
     <body>
@@ -21,46 +20,45 @@
 
             </div>
 
-            
-
         </header>
 
         <main>
 
-
+            <buttom class="switch" id="switch">
+                    <span><i class="fas fa-sun"></i></span>
+                    <span><i class="fas fa-moon"></i></span>
+            </buttom>
             <textarea type="text" id="ingresaencriptacion"class="cuadro-texto" required placeholder="Ingrese texto aqui" autofocus ></textarea>
             
-            <div class="circle-warning"> ! </div>
+            <div id="alerta" class="circle-warning"> ! 
 
-                <p class="warning">Solo letras minúsculas y sin acentos</p>
+                <p id="warning" class="warning">Solo letras minúsculas y sin acentos</p>
+                
+            </div>
 
             <div > 
                 
-                <button  type="button" class="right-encriptar" onclick="encriptar(); showButton()"> Encriptar </button> 
+                <button  id="right-encriptar" type="button" class="right-encriptar" onclick="encriptar(); showButton()"> Encriptar </button> 
             
             </div>
 
             <div>
                 
-                <button  type="button" class="left-desencriptar" onclick="desencriptar(); showButton()"> Desencriptar </button> 
+                <button  id="left-desencriptar" type="button" class="left-desencriptar" onclick="desencriptar(); showButton()"> Desencriptar </button> 
             
             </div>
 
-            <div class="answer-box">
+            <div id="answer-box" class="answer-box">
 
                 <div id="monito">
                     <img src="encriptador/Muñeco.png">
-
                     <p id="ningun-mensaje" class="ningun-mensaje"> Ningún mensaje fue encontrado</p>
                     <p id="ingresa-mensaje"> Ingresa el texto que desees encriptar o desencriptar.</p>
-
-                    
-
                 </div>
                
-            
-               <p id="titulo-mensaje"> 
+                <div p id="titulo-mensaje"> </div>
                 <p id="parrafo" class="parrafo-encriptar" ></p>
+            
                 <button  id="texto-a-copiar" type="button" class="copiar" onclick="copiar()" style="display:none"> Copiar </button> 
 
             </div>
@@ -69,8 +67,59 @@
 
 
         </main>
-    
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
+
+
+                var image = document.querySelector('.a-alura img');
+                image.classList.add('active');
+
+                var image = document.querySelector('#ingresaencriptacion');
+                image.classList.add('active');
+
+                var image = document.querySelector('.answer-box');
+                image.classList.add('active');
+
+                var image = document.querySelector('#alerta');
+                image.classList.add('active');
+
+                var image = document.querySelector('#right-encriptar');
+                image.classList.add('active');
+
+                var image = document.querySelector('#left-desencriptar');
+                image.classList.add('active');
+                
+
+                   
+            const buttonSwitch = document.querySelector('.switch');
+            const body = document.body;
+            const textarea = document.getElementById('ingresaencriptacion');
+            const AnswerBox = document.getElementById('answer-box');
+            const NingunMensaje = document.getElementById('ningun-mensaje');
+            const IngresaMensaje = document.getElementById('ingresa-mensaje');
+            const Warning = document.getElementById('warning');
+            const TextoACopiar = document.getElementById('texto-a-copiar');
+            const Parrafo = document.getElementById('parrafo');
+            const TituloMensaje = document.getElementById('titulo-mensaje');
+            
+                   
+            buttonSwitch.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            buttonSwitch.classList.toggle('active');
+            textarea.classList.toggle('dark');
+            AnswerBox.classList.toggle('dark');
+            NingunMensaje.classList.toggle('dark');
+            IngresaMensaje.classList.toggle('dark');
+            Warning.classList.toggle('dark');
+            TextoACopiar.classList.toggle('dark');
+            Parrafo.classList.toggle('dark');
+            TituloMensaje.classList.toggle('dark');
+          
+
+            
+            
+});
+
            function showButton(){
             let textoACopiar = document.getElementById("texto-a-copiar");
             let inputText = document.getElementById("ingresaencriptacion").value;
@@ -106,14 +155,26 @@
                     
                     }
 
-                else{
-                   alert("No se ingreso ningun texto")
-                    
-                }
-                
-                
-                                    
-            }
+        
+                    else {
+                        Swal.fire({
+                            title: 'No se ingreso ningun texto',
+                            width: 600,
+                            padding: '3em',
+                            color: '#ffffff',
+                            background: '#0A3871 ',
+                            backdrop: `
+                                rgba(0,0,123,0.4)
+                                url("https://media0.giphy.com/media/SeVBENCbz4YiL6rXj3/giphy.gif")
+                                
+                                center top
+                                no-repeat 
+                                `
+                           
+                        })
+                        textoACopiar.textContent = "Copiar";
+                        }
+                    }
 
             function desencriptar(){
                 let texto = document.getElementById("ingresaencriptacion").value;
@@ -135,10 +196,24 @@
                     monito.style.display = "none"
                                     }
 
-                    else{
-                   alert("No se ingreso ningun texto")
-                    
-                    }
+                                    else {
+                        Swal.fire({
+                            title: 'No se ingreso ningun texto',
+                            width: 600,
+                            padding: '3em',
+                            color: '#ffffff',
+                            background: '#0A3871 ',
+                            backdrop: `
+                                rgba(0,0,123,0.4)
+                                url("https://media0.giphy.com/media/SeVBENCbz4YiL6rXj3/giphy.gif")
+                                
+                                center top
+                                no-repeat 
+                                `
+                        
+                        })
+                        textoACopiar.textContent = "Copiar";
+                        }
 
             }
 
@@ -156,6 +231,7 @@
 
                 
             }
+
 
         </script>
 
